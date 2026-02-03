@@ -2,6 +2,7 @@ package org.example.u5d2.entities;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,7 @@ public class AppConfig {
 
 
     @Bean(name = "pizza_margherita")
+    @Primary
     public Pizza pizzaMargheritaBean() {
         List<Topping> tList = new ArrayList<>();
         tList.add(toppingTomatoBean());

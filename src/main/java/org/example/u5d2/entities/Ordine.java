@@ -11,6 +11,7 @@ public class Ordine {
     private double costoCoperto;
     private LocalTime orario;
     private List<Item> elementi;
+    private Tavolo tavolo;
 
 
     public double getImportoTotale() {
@@ -68,15 +69,22 @@ public class Ordine {
         this.stato = stato;
     }
 
-    public Ordine(double costoCoperto, List<Item> elementi, int numCoperti, int numOrdine, LocalTime orario, StatoOrdine stato) {
+    public Tavolo getTavolo() {
+        return tavolo;
+    }
+
+    public void setTavolo(Tavolo tavolo) {
+        this.tavolo = tavolo;
+    }
+
+    public Ordine(double costoCoperto, List<Item> elementi, int numCoperti, int numOrdine, LocalTime orario, StatoOrdine stato, Tavolo tavolo) {
         this.costoCoperto = costoCoperto;
         this.elementi = elementi;
         this.numCoperti = numCoperti;
         this.numOrdine = numOrdine;
         this.orario = orario;
         this.stato = stato;
-
-
+        this.tavolo = tavolo;
     }
 
     @Override
