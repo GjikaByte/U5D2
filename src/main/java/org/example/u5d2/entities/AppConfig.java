@@ -115,7 +115,6 @@ public class AppConfig {
         List<Drink> drinkList = new ArrayList<>();
         List<Topping> toppingsList = new ArrayList<>();
 
-
         return new Menu(pizzaList, drinkList, toppingsList);
     }
 }
