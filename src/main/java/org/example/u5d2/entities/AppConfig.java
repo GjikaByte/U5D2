@@ -1,5 +1,6 @@
 package org.example.u5d2.entities;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -86,6 +87,19 @@ public class AppConfig {
     public Drink wineBean() {
         return new Drink("Wine", 607, 7.49);
     }
+    @Bean("Tavolo1")
+    Tavolo getTable1(@Value("${seat.price}") double seatPrice) {
+        return new Tavolo(1, 5, statoTavolo.LIBERO);
+    }
 
+    @Bean("Tavolo2")
+    Tavolo getTable2(@Value("${seat.price}") double seatPrice) {
+        return new Tavolo(2, 4, statoTavolo.LIBERO);
+    }
+
+    @Bean("Tavolo3")
+    Tavolo getTable3(@Value("${seat.price}") double seatPrice) {
+        return new Tavolo(3, 8, statoTavolo.LIBERO);
+    }
     
 }

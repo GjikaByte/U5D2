@@ -1,7 +1,9 @@
 package org.example.u5d2.entities;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Ordine {
 
@@ -19,6 +21,17 @@ public class Ordine {
                 .mapToDouble(Item -> Item.getPrice())
                 .sum();
         return tot + (numCoperti * costoCoperto);
+    }
+    public Ordine(int numCoperti, Tavolo tavolo) {
+        Random rndm = new Random();
+        if (tavolo.getMaxCoperti() <= numCoperti)
+            throw new RuntimeException("Numero coperti maggiore di numero massimo posti sul tavolo!");
+        this.numOrdine = rndm.nextInt(1000, 100000);
+        this.stato = StatoOrdine.IN_CORSO;
+        this.numCoperti = numCoperti;
+        this.orario = LocalTime.now();
+        this.elementi = new ArrayList<>();
+        this.tavolo = tavolo;
     }
 
     public double getCostoCoperto() {
@@ -74,16 +87,6 @@ public class Ordine {
     }
 
     public void setTavolo(Tavolo tavolo) {
-        this.tavolo = tavolo;
-    }
-
-    public Ordine(double costoCoperto, List<Item> elementi, int numCoperti, int numOrdine, LocalTime orario, StatoOrdine stato, Tavolo tavolo) {
-        this.costoCoperto = costoCoperto;
-        this.elementi = elementi;
-        this.numCoperti = numCoperti;
-        this.numOrdine = numOrdine;
-        this.orario = orario;
-        this.stato = stato;
         this.tavolo = tavolo;
     }
 
