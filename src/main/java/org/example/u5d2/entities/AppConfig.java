@@ -108,4 +108,14 @@ public class AppConfig {
 
         return new Menu(pizzaList, drinkList, toppingsList);
     }
+
+    @Bean(name = "order")
+    public Menu orderBean(Pizza pi) {
+        List<Pizza> pizzaList = new ArrayList<>();
+        List<Drink> drinkList = new ArrayList<>();
+        List<Topping> toppingsList = new ArrayList<>();
+
+
+        return new Menu(pizzaList, drinkList, toppingsList);
+    }
 }
