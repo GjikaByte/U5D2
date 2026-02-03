@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -11,9 +13,13 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Component
 public class Menu {
+    @Autowired
     private List<Pizza> pizzaList;
+    @Autowired
     private List<Drink> drinkList;
+    @Autowired
     private List<Topping> toppingList;
 
     public void printMenu() {

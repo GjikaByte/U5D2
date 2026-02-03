@@ -87,28 +87,5 @@ public class AppConfig {
         return new Drink("Wine", 607, 7.49);
     }
 
-    @Bean(name = "menu")
-    public Menu menuBean() {
-        List<Pizza> pizzaList = new ArrayList<>();
-        List<Drink> drinkList = new ArrayList<>();
-        List<Topping> toppingsList = new ArrayList<>();
-
-        pizzaList.add(pizzaMargheritaBean());
-        pizzaList.add(pizzaHawaiianBean());
-        pizzaList.add(pizzaSalamiBean());
-        pizzaList.add(pizzaSalamiXlBean());
-
-        drinkList.add(lemonadeBean());
-        drinkList.add(waterBean());
-        drinkList.add(wineBean());
-
-        toppingsList.add(toppingTomatoBean());
-        toppingsList.add(toppingCheeseBean());
-        toppingsList.add(toppingSalamiBean());
-        toppingsList.add(toppingHamBean());
-        toppingsList.add(toppingPineappleBean());
-
-        return new Menu(pizzaList, drinkList, toppingsList);
-    }
     
 }
